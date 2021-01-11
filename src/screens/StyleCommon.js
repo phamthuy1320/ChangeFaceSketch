@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 
 const commonStyle = StyleSheet.create({
     header:{
-        backgroundColor: "#ffaa",
+        backgroundColor: "#fff",
         height:50,
         alignItems:'center',
         justifyContent:'center',
@@ -16,11 +16,29 @@ const commonStyle = StyleSheet.create({
     button:{
         height:50,
         aspectRatio:1/1,
-        backgroundColor:'red',
+        backgroundColor:'#fff',
         alignContent:'center',
+        alignItems:'center',
         justifyContent:'center',
         borderRadius:25
-    }
+    },
+    element:{
+        backgroundColor: 'green', 
+        alignItems: 'center',
+        justifyContent:'flex-end',
+        flex:1, 
+        margin:10,
+    },
+    flipButton: {
+        height: 40,
+        padding: 5,
+        margin:10,
+        borderRadius: 8,
+        borderColor: 'white',
+        borderWidth: 1,
+        alignContent:'center',
+        justifyContent:'center',
+      },
 })
 
 export default commonStyle;

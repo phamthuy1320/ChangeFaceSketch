@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87085932310",
+    "project_id": "rnsketch",
+    "storage_bucket": "rnsketch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87085932310:android:20ff73051b60e74b2d3a37",
+        "android_client_info": {
+          "package_name": "com.rn_face_sketch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87085932310-4jnp6ja0hgsmu60um7dqduo1e3u2vpe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHVBwqZPgySUXSL_Li49DJjCnIFOobe0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87085932310-4jnp6ja0hgsmu60um7dqduo1e3u2vpe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
