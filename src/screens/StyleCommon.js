@@ -24,8 +24,8 @@ const commonStyle = StyleSheet.create({
     },
     element:{
         backgroundColor: 'green', 
-        alignItems: 'center',
-        justifyContent:'flex-end',
+        // alignItems: 'flex-end',
+        // justifyContent:'flex-end',
         flex:1, 
         margin:10,
     },

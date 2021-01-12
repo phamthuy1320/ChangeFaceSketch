@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Text, TouchableOpacity} from 'react-native'
+import {View, Text, TouchableOpacity, Alert} from 'react-native'
 import commonStyle from './StyleCommon';
 import {Header, Button} from './commons';
 import {useNavigation} from '@react-navigation/native'
@@ -7,6 +7,7 @@ import { RNCamera } from 'react-native-camera';
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { useCamera } from 'react-native-camera-hooks'
 
 const features = {
     library:"Show library to choose a photo",
@@ -18,12 +19,15 @@ const features = {
 // + Save photo after edit
 // + Edit
 // +api deep learning in firebase
-const MainScreen = () =>{
+
+
+const MainScreen = ({initialProps}) =>{
     const [text, setText] = useState()
     const navigation = useNavigation()
-    const takePicture = async function() {
-
-    };
+    const [
+        { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
+        {takePicture},
+    ] = useCamera(initialProps);
     return(
         <>
         <Header title = {text}/>
@@ -31,13 +35,27 @@ const MainScreen = () =>{
             {/* <View style = {{backgroundColor: 'green', alignItems: 'center',justifyContent:'center',flex:1, marginVertical:10}}>
                 <Text style = {{color:'#fff', fontSize: 50, fontWeight: 'bold', textAlign:'center'}}>{text?text:'CAMERA ACCESS'}</Text>
             </View> */}
-            {/* <View style={commonStyle.element}> */}
-            <RNCamera style={commonStyle.element}>
-                <TouchableOpacity style = {{marginVertical:10}} onPress = {()=>RNCamera.takePictureAsync()}>
-                    <Entypo name = 'camera' size = {45} color = '#fff'/>
-                </TouchableOpacity>
-            </RNCamera>
-            {/* </View> */}
+            <View style={commonStyle.element}>
+                <RNCamera
+                    ref = {cameraRef}
+                    autoFocusPointOfInterest={autoFocusPoint.normalized}
+                    type={type}
+                    ratio={ratio}
+                    style={{ flex: 1 }}
+                    autoFocus={autoFocus}
+                >
+                    <TouchableOpacity style = {{
+                        marginVertical:10, 
+                        alignSelf:'flex-end'}} 
+                        onPress = {async ()=>{
+                            const data = await takePicture()
+                            console.warn(data)
+                            Alert.alert(JSON.stringify(data.uri))
+                        }}>
+                        <Entypo name = 'camera' size = {45} color = '#fff'/>
+                    </TouchableOpacity>
+                </RNCamera>
+            </View>
             <View style = {{
                 flexDirection:'row',
                 justifyContent:'space-between'

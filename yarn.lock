@@ -5672,6 +5672,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-camera-hooks@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera-hooks/-/react-native-camera-hooks-0.5.0.tgz#5bf75bf4daed1419e28fe6a477a61175b817f74e"
+  integrity sha512-5s/aGunw440ddY0oZHxA2OSP5FcZSl/v4PZuuoq23EnDQStOsstDG4ftxx342e7Y+yqWAwK/MxhctIl49p/38w==
+
 "react-native-camera@git+https://git@github.com/react-native-community/react-native-camera.git":
   version "3.41.0"
   resolved "git+https://git@github.com/react-native-community/react-native-camera.git#a2f3f5da0102490abff1b0dde85118e56fff15e0"
@@ -5688,6 +5693,11 @@ react-native-gesture-handler@^1.9.0:
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-image-picker@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-3.1.3.tgz#88e747d010c4095febb0797d895b80c0c25b114f"
+  integrity sha512-3T4sVBBhGhNoVW7x7lqyxOENNUbBTu68yGTDQUWd8VQHA6EezAcV+4ixOxD2VyeLMDGj/Ar3O+siaC5F45Y7YA==
 
 react-native-iphone-x-helper@^1.3.0:
   version "1.3.1"
