@@ -3,13 +3,13 @@ import {StyleSheet} from 'react-native';
 
 const commonStyle = StyleSheet.create({
     header:{
-        backgroundColor: "#fff",
+        backgroundColor: "#eceabe",
         height:50,
         alignItems:'center',
         justifyContent:'center',
     },
     bgCommon:{
-        backgroundColor:"#fff",
+        backgroundColor:"#dfddb2",
         flex:1,
         padding:10
     },
@@ -22,12 +22,17 @@ const commonStyle = StyleSheet.create({
         justifyContent:'center',
         borderRadius:25
     },
-    element:{
+    cameraScreen:{
         backgroundColor: 'green', 
         // alignItems: 'flex-end',
         // justifyContent:'flex-end',
         flex:1, 
         margin:10,
+    },
+    cameraIcon:{
+        flex:1, 
+        justifyContent:'flex-end', 
+        alignSelf:'center'
     },
     flipButton: {
         height: 40,

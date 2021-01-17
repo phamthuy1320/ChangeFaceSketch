@@ -19,43 +19,85 @@ const features = {
 // + Save photo after edit
 // + Edit
 // +api deep learning in firebase
-
-
-const MainScreen = ({initialProps}) =>{
-    const [text, setText] = useState()
-    const navigation = useNavigation()
+const Camera = ({initialProps, props}) =>{
+    const [photoURI, setPhotoURI] = useState(); 
     const [
         { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
         {takePicture},
     ] = useCamera(initialProps);
+    const navigation = useNavigation()
+    return(
+        <View style = {commonStyle.cameraScreen}>
+            <RNCamera
+                ref = {cameraRef}
+                autoFocusPointOfInterest={autoFocusPoint.normalized}
+                type={type}
+                ratio={ratio}
+                style={commonStyle.cameraScreen}
+                autoFocus={autoFocus}
+            >
+                <TouchableOpacity  
+                    style = {commonStyle.cameraIcon}
+                    onPress = {async ()=>{
+                        const data = await takePicture()
+                        setPhotoURI(data.uri)
+                        // console.log(data.uri)
+                        // Alert.alert(JSON.stringify(data.uri))
+                        // await navigation.navigate('Save',{uri:photoURI})
+                        props.setToken(false)
+                    }}>
+                    <Entypo name = 'camera' size = {45} color = '#fff'/>
+                </TouchableOpacity>
+            </RNCamera>
+        </View>
+    )
+}
+
+const SavedPicture = () =>{
+    return(
+        <View style = {commonStyle.cameraScreen}>
+            <Text>Saved Picture</Text>
+        </View>
+    )
+}
+
+const MainScreen = ({initialProps}) =>{
+    const [text, setText] = useState()
+    // const [photoURI, setPhotoURI] = useState()
+    const [isToken, setToken] = useState(true)
+    const navigation = useNavigation()
+    // const [
+    //     { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
+    //     {takePicture},
+    // ] = useCamera(initialProps);
     return(
         <>
-        <Header title = {text}/>
+        <Header title = {'camera'.toUpperCase()}/>
         <View style = {commonStyle.bgCommon}>
             {/* <View style = {{backgroundColor: 'green', alignItems: 'center',justifyContent:'center',flex:1, marginVertical:10}}>
                 <Text style = {{color:'#fff', fontSize: 50, fontWeight: 'bold', textAlign:'center'}}>{text?text:'CAMERA ACCESS'}</Text>
             </View> */}
-            <View style={commonStyle.element}>
-                <RNCamera
-                    ref = {cameraRef}
-                    autoFocusPointOfInterest={autoFocusPoint.normalized}
-                    type={type}
-                    ratio={ratio}
-                    style={{ flex: 1 }}
-                    autoFocus={autoFocus}
-                >
-                    <TouchableOpacity style = {{
-                        marginVertical:10, 
-                        alignSelf:'flex-end'}} 
-                        onPress = {async ()=>{
-                            const data = await takePicture()
-                            console.warn(data)
-                            Alert.alert(JSON.stringify(data.uri))
-                        }}>
-                        <Entypo name = 'camera' size = {45} color = '#fff'/>
-                    </TouchableOpacity>
-                </RNCamera>
-            </View>
+            {isToken?<Camera setToken/>:<SavedPicture/>}
+            {/* <RNCamera
+                ref = {cameraRef}
+                autoFocusPointOfInterest={autoFocusPoint.normalized}
+                type={type}
+                ratio={ratio}
+                style={commonStyle.cameraScreen}
+                autoFocus={autoFocus}
+            >
+                <TouchableOpacity  
+                    style = {commonStyle.cameraIcon}
+                    onPress = {async ()=>{
+                        const data = await takePicture()
+                        setPhotoURI(data.uri)
+                        // console.log(data.uri)
+                        // Alert.alert(JSON.stringify(data.uri))
+                        await navigation.navigate('Save',{uri:photoURI})
+                    }}>
+                    <Entypo name = 'camera' size = {45} color = '#fff'/>
+                </TouchableOpacity>
+            </RNCamera> */}
             <View style = {{
                 flexDirection:'row',
                 justifyContent:'space-between'
@@ -66,7 +108,8 @@ const MainScreen = ({initialProps}) =>{
                     icon = {<MaterialIcons name = 'photo-library' size = {22}/>}
                 />
                 <Button 
-                    onPress = {()=>setText(features.save)} 
+                    // onPress = {()=>setText(features.save)} 
+                    onPress = {()=>navigation.navigate('Save',{uri:photoURI})}
                     title = 'Save'
                     icon = {<Entypo name = 'save' size = {22}/>}
                 />
