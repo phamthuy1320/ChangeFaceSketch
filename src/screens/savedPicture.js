@@ -15,7 +15,10 @@ const SavedPicture = () =>{
     <>
     <Header title = 'SAVED PICTURE'/>
     <View style = {common.bgCommon}>
-      <Image source = {{uri:route.params.uri}} style = {{height:'100%', flex:1}}/>
+      {route.params.uri?
+        <Image source = {{uri:route.params?.uri}} style = {{height:'100%', flex:1}}/>:
+        <View style = {{flex:1}}/>
+      }
       {/* <Text onPress = {()=> navigation.navigate('Main')}>Go to Camera</Text> */}
       <View style = {{
           flexDirection:'row',

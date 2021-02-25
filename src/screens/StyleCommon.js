@@ -27,7 +27,7 @@ const commonStyle = StyleSheet.create({
         // alignItems: 'flex-end',
         // justifyContent:'flex-end',
         flex:1, 
-        margin:10,
+        // margin:10,
     },
     cameraIcon:{
         flex:1, 

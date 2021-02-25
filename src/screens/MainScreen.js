@@ -41,9 +41,9 @@ const Camera = ({initialProps, props}) =>{
                     onPress = {async ()=>{
                         const data = await takePicture()
                         setPhotoURI(data.uri)
-                        // console.log(data.uri)
-                        // Alert.alert(JSON.stringify(data.uri))
-                        // await navigation.navigate('Save',{uri:photoURI})
+                        console.log(data.uri)
+                        Alert.alert(JSON.stringify(data.uri))
+                        await navigation.navigate('Save',{uri:photoURI})
                         props.setToken(false)
                     }}>
                     <Entypo name = 'camera' size = {45} color = '#fff'/>
