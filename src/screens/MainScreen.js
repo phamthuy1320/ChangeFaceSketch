@@ -1,136 +1,85 @@
-import React, {useState} from 'react'
-import {View, Text, TouchableOpacity, Alert} from 'react-native'
-import commonStyle from './StyleCommon';
-import {Header, Button} from './commons';
-import {useNavigation} from '@react-navigation/native'
-import { RNCamera } from 'react-native-camera';
-import Entypo from 'react-native-vector-icons/Entypo'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { useCamera } from 'react-native-camera-hooks'
+import React from 'react';
+import {
+    View,
+    Text,
+    StyleSheet
+}from 'react-native';
+import {ButtonRect} from './commons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useNavigation} from '@react-navigation/native';
 
-const features = {
-    library:"Show library to choose a photo",
-    save:"Save into library",
-    edit:"Example draw or navigation to other screen where have pen, color, ... to edit",
-    change:"Change photo to sketch have a loading when wait changing process"
-}
-// + Take photo
-// + Save photo after edit
-// + Edit
-// +api deep learning in firebase
-const Camera = ({initialProps, props}) =>{
-    const [photoURI, setPhotoURI] = useState(); 
-    const [
-        { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
-        {takePicture},
-    ] = useCamera(initialProps);
-    const navigation = useNavigation()
+const BrandBox = () =>{
     return(
-        <View style = {commonStyle.cameraScreen}>
-            <RNCamera
-                ref = {cameraRef}
-                autoFocusPointOfInterest={autoFocusPoint.normalized}
-                type={type}
-                ratio={ratio}
-                style={commonStyle.cameraScreen}
-                autoFocus={autoFocus}
-            >
-                <TouchableOpacity  
-                    style = {commonStyle.cameraIcon}
-                    onPress = {async ()=>{
-                        const data = await takePicture()
-                        setPhotoURI(data.uri)
-                        console.log(data.uri)
-                        Alert.alert(JSON.stringify(data.uri))
-                        await navigation.navigate('Save',{uri:photoURI})
-                        props.setToken(false)
-                    }}>
-                    <Entypo name = 'camera' size = {45} color = '#fff'/>
-                </TouchableOpacity>
-            </RNCamera>
+        <View style = {st_brandbox.container}>
+            <Text style = {st_brandbox.text} >
+                Welcome Face Sketch Aplication
+            </Text>
         </View>
     )
 }
 
-const SavedPicture = () =>{
-    return(
-        <View style = {commonStyle.cameraScreen}>
-            <Text>Saved Picture</Text>
+const ButtonBox = () =>{
+    const navigation = useNavigation()
+    return (
+        <View style = {styles.buttonBox}>
+            <ButtonRect 
+                onPress = {()=>navigation.navigate('Library')}
+                color = '#fff'
+                title = 'Camera'
+                colorText = '#000'
+                icon = {<AntDesign name = 'camera' size = {50} color='#000'/>}
+                row
+                // rightIcon = {<AntDesign name = 'right' size = {30} color = '#000'/>}
+            />
+            <ButtonRect
+                onPress = {()=>navigation.navigate('Library')}
+                title = 'Library'
+                colorText = '#000'
+                icon = {<Fontisto name = 'photograph' size = {50} color='#000'/>}
+                row
+            />
         </View>
     )
 }
-
-const MainScreen = ({initialProps}) =>{
-    const [text, setText] = useState()
-    // const [photoURI, setPhotoURI] = useState()
-    const [isToken, setToken] = useState(true)
-    const navigation = useNavigation()
-    // const [
-    //     { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
-    //     {takePicture},
-    // ] = useCamera(initialProps);
+const MainScreen = () =>{
     return(
-        <>
-        <Header title = {'camera'.toUpperCase()}/>
-        <View style = {commonStyle.bgCommon}>
-            {/* <View style = {{backgroundColor: 'green', alignItems: 'center',justifyContent:'center',flex:1, marginVertical:10}}>
-                <Text style = {{color:'#fff', fontSize: 50, fontWeight: 'bold', textAlign:'center'}}>{text?text:'CAMERA ACCESS'}</Text>
-            </View> */}
-            {isToken?<Camera setToken/>:<SavedPicture/>}
-            {/* <RNCamera
-                ref = {cameraRef}
-                autoFocusPointOfInterest={autoFocusPoint.normalized}
-                type={type}
-                ratio={ratio}
-                style={commonStyle.cameraScreen}
-                autoFocus={autoFocus}
-            >
-                <TouchableOpacity  
-                    style = {commonStyle.cameraIcon}
-                    onPress = {async ()=>{
-                        const data = await takePicture()
-                        setPhotoURI(data.uri)
-                        // console.log(data.uri)
-                        // Alert.alert(JSON.stringify(data.uri))
-                        await navigation.navigate('Save',{uri:photoURI})
-                    }}>
-                    <Entypo name = 'camera' size = {45} color = '#fff'/>
-                </TouchableOpacity>
-            </RNCamera> */}
-            <View style = {{
-                flexDirection:'row',
-                justifyContent:'space-between'
-            }}>
-                <Button 
-                    onPress = {()=>setText(features.library)} 
-                    title = 'Library'
-                    icon = {<MaterialIcons name = 'photo-library' size = {22}/>}
-                />
-                <Button 
-                    // onPress = {()=>setText(features.save)} 
-                    onPress = {()=>navigation.navigate('Save',{uri:photoURI})}
-                    title = 'Save'
-                    icon = {<Entypo name = 'save' size = {22}/>}
-                />
-                <Button 
-                    onPress = {()=>setText(features.edit)} 
-                    title = 'Edit'
-                    icon = {<Entypo name = 'edit' size = {22}/>}
-                />
-                <Button 
-                    onPress = {()=>setText(features.change)} 
-                    title = 'Change'
-                    icon = {<FontAwesome name = 'exchange' size = {22}/>}
-                />
-                {/* <Button 
-                    onPress = {()=>navigation.navigate('Photo')} 
-                    title = '->'
-                /> */}
-            </View>
+        <View style = {styles.container}>
+            {/* <BrandBox/>
+            <Text>Let's Start</Text> */}
+            <ButtonBox/>
         </View>
-        </>
     )
 }
 
 export default MainScreen;
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor:'#cbe4e3',
+        flex:1,
+        justifyContent:'space-between',
+        padding:10,
+    },
+    buttonBox:{
+        flex:1/2,
+        // flexDirection:'row',
+        justifyContent:'space-between'
+    }
+})
+
+const st_brandbox = StyleSheet.create({
+    container: {
+        backgroundColor:'#f2d149',
+        flex:1/3,
+        borderRadius:25,
+        marginBottom:10,
+        justifyContent:'center',
+        alignContent:'center',
+        alignItems:'center'
+    },
+    text:{
+        fontSize:30,
+        color:'#fff'
+    }
+})

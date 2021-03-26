@@ -1,5 +1,5 @@
 import React from 'react';
 import Header from './Header';
-import Button from './Button';
+import {Button, ButtonRect} from './Button';
 
-export {Header, Button};
+export {Header, Button, ButtonRect};

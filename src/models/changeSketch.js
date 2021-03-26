@@ -1,0 +1,1 @@
+import Tflite from 'tflite-react-native';

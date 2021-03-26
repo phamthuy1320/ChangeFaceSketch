@@ -1,33 +1,15 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-const commonStyle = StyleSheet.create({
-    header:{
-        backgroundColor: "#eceabe",
-        height:50,
-        alignItems:'center',
-        justifyContent:'center',
-    },
+const styles_app = StyleSheet.create({
     bgCommon:{
         backgroundColor:"#dfddb2",
         flex:1,
         padding:10
     },
-    button:{
-        height:50,
-        aspectRatio:1/1,
-        backgroundColor:'#fff',
-        alignContent:'center',
-        alignItems:'center',
-        justifyContent:'center',
-        borderRadius:25
-    },
     cameraScreen:{
         backgroundColor: 'green', 
-        // alignItems: 'flex-end',
-        // justifyContent:'flex-end',
         flex:1, 
-        // margin:10,
     },
     cameraIcon:{
         flex:1, 
@@ -46,4 +28,4 @@ const commonStyle = StyleSheet.create({
       },
 })
 
-export default commonStyle;
+export default styles_app;
