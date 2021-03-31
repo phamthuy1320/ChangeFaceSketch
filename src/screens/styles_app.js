@@ -3,18 +3,9 @@ import {StyleSheet} from 'react-native';
 
 const styles_app = StyleSheet.create({
     bgCommon:{
-        backgroundColor:"#dfddb2",
+        backgroundColor:"#cbe4e3",
         flex:1,
         padding:10
-    },
-    cameraScreen:{
-        backgroundColor: 'green', 
-        flex:1, 
-    },
-    cameraIcon:{
-        flex:1, 
-        justifyContent:'flex-end', 
-        alignSelf:'center'
     },
     flipButton: {
         height: 40,

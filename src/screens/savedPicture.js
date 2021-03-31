@@ -1,58 +1,54 @@
 import React, {useState} from 'react'
-import {View, Text, Image} from 'react-native'
-import {Header} from './commons'
-import common from './StyleCommon'
+import {View, Image, StyleSheet, Dimensions, Text} from 'react-native'
+import {Header, Announce} from './commons'
 import {useNavigation, useRoute} from '@react-navigation/native'
-import {Button} from './commons'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Entypo from 'react-native-vector-icons/Entypo'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import {BGCOLOR} from './commons/Colors';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
+const photo = 'https://i.pinimg.com/564x/bd/0f/4f/bd0f4f9d99dee4fd5c3ea53facc7492f.jpg'
+
+const w = Dimensions.get('window')
 const SavedPicture = () =>{
   const navigation = useNavigation()
   const route = useRoute()
+  const [announce, setAnnounce] = useState(true);
+
   return(
     <>
-    <Header title = 'SAVED PICTURE'/>
-    <View style = {common.bgCommon}>
-      {route.params.uri?
-        <Image source = {{uri:route.params?.uri}} style = {{height:'100%', flex:1}}/>:
-        <View style = {{flex:1}}/>
+    <Header 
+      left = {
+        <AntDesign 
+          onPress = {()=>navigation.goBack()}
+          color="#fff" name = 'arrowleft' size = {22}
+        />
       }
-      {/* <Text onPress = {()=> navigation.navigate('Main')}>Go to Camera</Text> */}
-      <View style = {{
-          flexDirection:'row',
-          justifyContent:'space-between'
-        }}>
-          <Button 
-              onPress = {()=>navigation.navigate('Main')} 
-              title = 'Camera'
-              icon = {<MaterialIcons name = 'camera' size = {22}/>}
-          />
-          <Button 
-              // onPress = {()=>setText(features.save)} 
-              onPress = {()=>{}}
-              title = 'Save'
-              icon = {<Entypo name = 'save' size = {22}/>}
-          />
-          <Button 
-              onPress = {()=>{}} 
-              title = 'Edit'
-              icon = {<Entypo name = 'edit' size = {22}/>}
-          />
-          <Button 
-              onPress = {()=>{}} 
-              title = 'Change'
-              icon = {<FontAwesome name = 'exchange' size = {22}/>}
-          />
-          {/* <Button 
-              onPress = {()=>navigation.navigate('Photo')} 
-              title = '->'
-          /> */}
-        </View>
+      title = 'SAVED PICTURE'
+      right = {<View/>}
+    />
+    <Announce info = 'いいですね！フフフ'/>
+    <View styles = {styles.container}>
+      {/* {route.params.uri?
+        <Image source = {{uri:route.params?.uri}} style = {styles.image}/>:
+        
+      } */}
+      {/* <Text>You want to try to it?</Text> */}
+      <Image source = {{uri:photo}} style = {styles.image} 
+        resizeMode='center'
+      />
     </View>
     </>
   )
 }
 
 export default SavedPicture;
+
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor:BGCOLOR,
+    flex:1
+  },
+  image:{
+    width:w.width,
+    height:w.height
+  }
+})

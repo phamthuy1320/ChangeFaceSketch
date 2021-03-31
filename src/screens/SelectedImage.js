@@ -21,7 +21,7 @@ const SelectedImage = () =>{
 export default SelectedImage;
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:'#364e4a',
+        backgroundColor:'#cbe4e3',
         flex:1,
         alignItems:'center',
         justifyContent:'center',
