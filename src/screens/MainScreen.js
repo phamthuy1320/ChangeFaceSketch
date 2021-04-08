@@ -14,9 +14,10 @@ import {BGCOLOR, BUTTON} from './commons/Colors';
 const im_brand = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/x.png';
 const im_background = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/background.png';
 const BrandBox = () =>{
+    const str = 'How do you want to \nget starting?'
     return(
-        <View style = {st_brandbox.container}>
-            <Text style = {st_brandbox.text}>How do you want to get starting?</Text>
+        <View style = {styles.brandbox}>
+            <Text style = {st_brandbox.text}>{str}</Text>
         </View>
     )
 }
@@ -25,7 +26,6 @@ const ButtonBox = () =>{
     const navigation = useNavigation()
     return (
         <View style = {styles.buttonBox}>
-            <Text>FaceSketch</Text>
             <ButtonRect 
                 onPress = {()=>navigation.navigate('Camera')}
                 color = {BUTTON.inMain.camera.bg}
@@ -56,7 +56,7 @@ const IntroductionBox = () =>{
 const MainScreen = () =>{
     return(
         // <View style = {styles.container}>
-        <ImageBackground source ={{uri:im_background}} style = {styles.container}>
+        <ImageBackground source ={{uri:im_background}} style = {styles.container} resizeMode = 'stretch'>
             <BrandBox/>
             <ButtonBox/>
             <IntroductionBox/>
@@ -74,10 +74,17 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         padding:10,
     },
+    brandbox: {
+        flex:1/3,
+        borderRadius:25,
+        justifyContent:'center',
+        alignContent:'center',
+        alignItems:'center',
+    },
     buttonBox:{
         flex:1/3,
         padding:25,
-        justifyContent:'space-around',
+        justifyContent:'space-between',
         marginTop:200
     },
     introduction:{
@@ -86,17 +93,10 @@ const styles = StyleSheet.create({
 })
 
 const st_brandbox = StyleSheet.create({
-    container: {
-        flex:1/3,
-        borderRadius:25,
-        marginBottom:10,
-        justifyContent:'center',
-        alignContent:'center',
-        alignItems:'center',
-    },
     text:{
         fontSize:35,
-        color:'#fff'
+        color:'#fff',
+        textAlign:'right'
     }
 })
 const st_introductionbox = StyleSheet.create({

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {Button} from '../commons';
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -11,34 +11,32 @@ const BottomBar = ()=>{
     const navigation = useNavigation();
     const [photoURI, setPhotos] = useState('https://i.pinimg.com/564x/bd/0f/4f/bd0f4f9d99dee4fd5c3ea53facc7492f.jpg')
     return(
-        <View style = {{
-            flexDirection:'row',
-            justifyContent:'space-between',
-            padding:10,
-            backgroundColor:BOTTOMBAR.background
-        }}>
+        <View style = {styles.container}>
             <Button 
                 onPress = {()=>navigation.navigate('Library')} 
                 title = 'Library'
-                icon = {<MaterialIcons name = 'photo-library' size = {22}/>}
+                icon = {<MaterialIcons name = 'photo-library' size = {22} color = {BOTTOMBAR.background}/>}
             />
             <Button 
                 onPress = {()=>navigation.navigate('Save',{uri:photoURI})}
                 title = 'Save'
-                icon = {<Entypo name = 'save' size = {22}/>}
+                icon = {<Entypo name = 'save' size = {22} color = {BOTTOMBAR.background}/>}
             />
             <Button 
                 onPress = {()=>navigation.navigate('Edit')} 
                 title = 'Edit'
-                icon = {<Entypo name = 'edit' size = {22}/>}
-            />
-            <Button 
-                onPress = {()=>navigation.navigate('Change')} 
-                title = 'Change'
-                icon = {<FontAwesome name = 'exchange' size = {22}/>}
+                icon = {<Entypo name = 'edit' size = {22} color = {BOTTOMBAR.background}/>}
             />
         </View>
     )
 }
 
 export default BottomBar;
+const styles = StyleSheet.create({
+    container:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        padding:10,
+        backgroundColor:BOTTOMBAR.background
+    }
+})

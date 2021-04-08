@@ -3,12 +3,12 @@ import {View,TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const Button = (props) =>{
     return (
-        <>
-            <TouchableOpacity style = {styles.button} {...props}>
-              {props?.icon}
-            </TouchableOpacity>
-            {props.title?<Text style = {{textAlign:'center'}}>{props.title}</Text>:null}
-        </>
+    <View>
+        <TouchableOpacity style = {styles.button} {...props}>
+            {props?.icon}
+        </TouchableOpacity>
+        <Text style = {styles.title}>{props.title}</Text>
+    </View>
     )
 }
 
@@ -35,7 +35,7 @@ const ButtonRect = (props) =>{
 export {Button, ButtonRect};
 const styles = StyleSheet.create({
     button:{
-        height:70,
+        height:50,
         aspectRatio:1/1,
         backgroundColor:'#fff',
         alignContent:'center',
@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     },
     title:{
         textAlign:'center',
-
+        color:'#fff'
     }
 })

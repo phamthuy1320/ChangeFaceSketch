@@ -1,17 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {ANNOUNCE} from '../commons/Colors';
-import {ButtonRect} from '../commons'
 
 const Announce = (props) =>{
     return (
         <View style = {styles.container}>
             <Text style = {styles.text}>{props?.info}</Text>
-            <ButtonRect title = 'CANCEL'/> 
-            {/* <View style = {styles.button_box}>
-                <ButtonRect title = 'CANCEL'/>
-                <ButtonRect title = 'OK'/>
-            </View> */}
         </View>
     )
 }
@@ -23,9 +17,8 @@ const styles = StyleSheet.create({
         backgroundColor:ANNOUNCE.info,
         height:70,
         width:'100%',
-        borderBottomLeftRadius:15,
-        borderBottomRightRadius:15,
         borderBottomWidth:1,
+        borderBottomColor:ANNOUNCE.text,
         justifyContent:'center',
         alignContent:'center',
         alignItems:'center',

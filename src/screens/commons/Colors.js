@@ -1,14 +1,14 @@
 import React from 'react';
 const HEADER = {
-    background:'#af947f',
+    background:'#f3aa51',
     text:'#fff'
 };
 const BOTTOMBAR = {
-    background:'#af947f',
+    background:'#f3aa51',
     text:'#3e3e3a'
 };
 
-const BGCOLOR = '#ccd7e5';
+const BGCOLOR = '#fff';
 
 const ANNOUNCE = {
     info:'#c3ff96',

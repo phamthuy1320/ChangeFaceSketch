@@ -10,10 +10,21 @@ const Camera = ({initialProps, props}) =>{
     const [photoURI, setPhotoURI] = useState(); 
     const [
         { cameraRef, type, ratio, autoFocus, autoFocusPoint },
-        {takePicture},
     ] = useCamera(initialProps);
     const navigation = useNavigation()
-   
+    
+    const takePicture = async () => {
+        if (cameraRef.current) {
+          const options = { quality: 0.5, base64: true, skipProcessing: true };
+          const data = await cameraRef.current.takePictureAsync(options);
+          const source = data.uri;
+          if (source) {
+            // await cameraRef.current.pausePreview();
+            console.log("picture source", source);
+            navigation.navigate('Edit', {uri:source})
+          }
+        }
+      }
     return(
         <RNCamera
             ref = {cameraRef}
@@ -25,11 +36,7 @@ const Camera = ({initialProps, props}) =>{
         >
             <TouchableOpacity  
                 style = {styles.camera}
-                onPress = {async ()=>{
-                    const options = { quality: 0.5, base64: true };
-                    const data = await cameraRef.takePictureAsync(options);
-                    console.log(data)
-                }}>
+                onPress = {takePicture}>
                 <Entypo name = 'camera' size = {45} color = '#fff'/>
             </TouchableOpacity>
         </RNCamera>

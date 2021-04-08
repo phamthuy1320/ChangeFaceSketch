@@ -17,6 +17,7 @@ import ImageItems from './ImageItems';
 import BottomBar from './components/BottomBar';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
+import { BGCOLOR, HEADER } from './commons/Colors';
 async function hasAndroidPermission(){
     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
 
@@ -66,7 +67,7 @@ const LibraryScreen = () => {
             <Header 
                 left = {<AntDesign 
                     onPress = {()=>navigation.navigate('Main')}
-                    color="#fff" name = 'arrowleft' size = {22}/>}
+                    color={HEADER.text} name = 'arrowleft' size = {22}/>}
                 title = {'Library'.toUpperCase()}
                 right = {<View/>}
             />
@@ -89,14 +90,11 @@ export default LibraryScreen;
 
 const styles = StyleSheet.create({
     container:{
-        // backgroundColor:'#364e4a',
-        backgroundColor:'#cbe4e3',
+        backgroundColor:BGCOLOR,
         flex:1,
-        // alignItems:'center',
-        // justifyContent:'center'
     },
     text:{
-        color:'#fff',
+        color:HEADER.text,
         fontSize:20,
     }
 })
