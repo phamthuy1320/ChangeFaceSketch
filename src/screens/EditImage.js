@@ -22,9 +22,7 @@ const EditImage = (props) =>{
     const [cropedURI, setCropedURI] = useState();
     const _openCropper = (uri) =>{
         ImagePicker.openCropper({
-            path: uri,
-            width: 300,
-            height: 400
+            path: uri
           }).then(image => {
             console.log(image.path);
             setCropedURI(image.path)

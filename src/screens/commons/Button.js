@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,TouchableOpacity, Text, StyleSheet} from 'react-native';
-
+import {BUTTON} from './Colors';
 const Button = (props) =>{
     return (
     <View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     button:{
         height:50,
         aspectRatio:1/1,
-        backgroundColor:'#fff',
+        backgroundColor:BUTTON.inBottomBar.bg,
         alignContent:'center',
         alignItems:'center',
         justifyContent:'center',
@@ -49,10 +49,11 @@ const styles = StyleSheet.create({
         alignContent:'center',
         alignItems:'center',
         paddingHorizontal:10,
-        height:80
+        height:90,
+        marginVertical:10
     },
     title:{
         textAlign:'center',
-        color:'#fff'
+        color:BUTTON.inBottomBar.text
     }
 })

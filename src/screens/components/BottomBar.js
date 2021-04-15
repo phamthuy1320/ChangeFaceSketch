@@ -35,7 +35,7 @@ export default BottomBar;
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
-        justifyContent:'space-between',
+        justifyContent:'space-around',
         padding:10,
         backgroundColor:BOTTOMBAR.background
     }

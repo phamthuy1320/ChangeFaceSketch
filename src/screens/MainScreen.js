@@ -14,7 +14,7 @@ import {BGCOLOR, BUTTON} from './commons/Colors';
 const im_brand = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/x.png';
 const im_background = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/background.png';
 const BrandBox = () =>{
-    const str = 'How do you want to \nget starting?'
+    const str = 'How do you want to\n\nget starting?'
     return(
         <View style = {styles.brandbox}>
             <Text style = {st_brandbox.text}>{str}</Text>
@@ -46,7 +46,7 @@ const ButtonBox = () =>{
     )
 }
 const IntroductionBox = () =>{
-    const str = 'Present about this application\nThis is my project\nPham Thi Thuy K62 UET'
+    const str = 'Pham Thi Thuy K62 UET'
     return(
         <View style = {styles.introducts}>
             <Text style = {st_introductionbox.text}>{str}</Text>
@@ -55,21 +55,46 @@ const IntroductionBox = () =>{
 }
 const MainScreen = () =>{
     return(
-        // <View style = {styles.container}>
-        <ImageBackground source ={{uri:im_background}} style = {styles.container} resizeMode = 'stretch'>
+        <View style = {styles.container}>
+        {/* <ImageBackground source ={{uri:im_background}} style = {styles.container} resizeMode = 'stretch'> */}
             <BrandBox/>
+            {/* <View style = {styles.brandbox} /> */}
             <ButtonBox/>
             <IntroductionBox/>
-        </ImageBackground>
-        // </View>
+        {/* </ImageBackground> */}
+        </View>
     )
 }
 
 export default MainScreen;
 
 const styles = StyleSheet.create({
+    // _contener:{
+    //     height:'30%',
+    //     backgroundColor:'#ffdecb',
+    //     flexDirection:'row'
+    // },
+    // _contener1:{
+    //     borderBottomRightRadius:135,
+    //     borderBottomLeftRadius:135,
+    //     backgroundColor:'#fff',
+    //     borderEndWidth:3,
+    //     borderRightColor:'#a8842e',
+    //     height:'100%',
+    //     aspectRatio:1/1,
+    //     flex:1
+    // },
+    // _contener2:{
+    //     borderTopLeftRadius:135,
+    //     backgroundColor:'#fff',
+    //     borderLeftWidth:3,
+    //     borderLeftColor:'#a8842e',
+    //     height:'100%',
+    //     aspectRatio:1/1,
+    //     flex:1
+    // },
     container:{
-        // backgroundColor:BGCOLOR,
+        backgroundColor:BGCOLOR,
         flex:1,
         justifyContent:'space-between',
         padding:10,
@@ -84,8 +109,7 @@ const styles = StyleSheet.create({
     buttonBox:{
         flex:1/3,
         padding:25,
-        justifyContent:'space-between',
-        marginTop:200
+        justifyContent:'center',
     },
     introduction:{
         flex:1/3
@@ -102,6 +126,7 @@ const st_brandbox = StyleSheet.create({
 const st_introductionbox = StyleSheet.create({
     text:{
         textAlign:'center',
-        fontStyle:'italic'
+        fontStyle:'italic',
+        color:BUTTON.inMain.camera.text
     }
 })
