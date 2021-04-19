@@ -6,7 +6,8 @@ import CameraScreen from '../screens/CameraScreen';
 import SavedPicture from '../screens/SavedPicture';
 import EditImage from '../screens/EditImage';
 import LibraryScreen from '../screens/LibraryScreen';
-// import _myModel from '../models/Model';
+import _myModel from '../models/Model';
+import EditSketch from '../screens/EditSketch';
 
 const Stack = createStackNavigator()
 export default AppNavigation = () =>{
@@ -19,6 +20,7 @@ export default AppNavigation = () =>{
                 <Stack.Screen name = 'Save' component = {SavedPicture}/>
                 <Stack.Screen name = 'Library' component = {LibraryScreen}/>
                 <Stack.Screen name = 'Edit' component = {EditImage}/>
+                <Stack.Screen name = 'EditSketch' component = {EditSketch}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

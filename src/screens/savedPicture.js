@@ -8,6 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import {BottomBar} from './components'
+import {editImage} from './utils/editImage'
 // import changeSketch from './utils/changeSketch'
 const default_photo = 'https://i.pinimg.com/564x/bd/0f/4f/bd0f4f9d99dee4fd5c3ea53facc7492f.jpg'
 const default_sketch = 'https://i.pinimg.com/564x/5d/3d/16/5d3d16eb863c4cbdb3d23b30ee8e866f.jpg'
@@ -36,9 +37,14 @@ const SavedPicture = () =>{
           icon = {<Entypo name = {stateButton.icon} size = {22} color = {BOTTOMBAR.background}/>}
           // icon = {<MaterialIcons name = 'photo-library' size = {22} color = {BOTTOMBAR.background}/>}
         />
+        {/* <Button 
+          onPress = {()=>navigation.navigate('EditSketch', {uri:route.params?.uri})}
+          title = 'Edit Sketch'
+          icon = {<Entypo name = 'edit' size = {22} color = {BOTTOMBAR.background}/>}
+        /> */}
         <Button 
-          onPress = {()=>navigation.navigate('Edit')}
-          title = 'Edit'
+          onPress = {()=>editImage(route.params?.uri)}
+          title = 'Edit Sketch'
           icon = {<Entypo name = 'edit' size = {22} color = {BOTTOMBAR.background}/>}
         />
         <Button 

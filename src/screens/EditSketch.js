@@ -1,16 +1,13 @@
-import React, {useEffect} from 'react';
-import Tflite from 'tflite-react-native';
+import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   Alert,
-  ImageBackground,
   TouchableOpacity,
   Image
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import PhotoEditor from 'react-native-photo-editor'
@@ -73,77 +70,48 @@ const sketch = () =>{
    />
 	)
 }
-let tflite = new Tflite();
-const MODEL_URL  ='./model/inception.json'
-const URI = 'https://1079614922.rsc.cdn77.org/data/images/full/13477/emma-watson.jpg'
-const _myModel = () =>{
-  const _onPress = async () => {
-    await PhotoEditor.Edit({
-      path: '/storage/emulated/0/Pictures/SharedFolder/a.png',
-      stickers: [
-        'sticker0',
-        'sticker1',
-        'sticker2',
-        'sticker3',
-        'sticker4',
-        'sticker5',
-        'sticker6',
-        'sticker7',
-        'sticker8',
-        'sticker9',
-        'sticker10',
-      ],
-      // hiddenControls: [
-      //   'clear',
-      //   'crop',
-      //   'draw',
-      //   'save',
-      //   'share',
-      //   'sticker',
-      //   'text',
-      // ],
-      colors:undefined,
-      onDone: (imagePath) => {
-        console.log('on done',JSON.stringify(imagePath));
-      },
-      onCancel: () => {
-        console.log('on cancel');
-      },
-    });
-  };
 
-  useEffect(
-    ()=>{
-      let photoPath = RNFS.DocumentDirectoryPath + URI;
-      let binaryFile = Image.resolveAssetSource({uri:URI});
-
-      RNFetchBlob.config({fileCache: true})
-        .fetch('GET', binaryFile.uri)
-        .then((resp) => {
-          RNFS.moveFile(resp.path(), photoPath)
-            .then(() => {
-              console.log('FILE WRITTEN!');
-            })
-            .catch((err) => {
-              console.log(err.message);
-            });
-        })
-        .catch((e) => {
-          console.log(e);
+const EditSketch = () =>{
+    const route = useRoute()
+    const _onPress = async () => {
+        await PhotoEditor.Edit({
+        path: route.params?.uri.split('file://')[1],
+        stickers: [
+            'sticker0',
+            'sticker1',
+            'sticker2',
+            'sticker3',
+            'sticker4',
+            'sticker5',
+            'sticker6',
+            'sticker7',
+            'sticker8',
+            'sticker9',
+            'sticker10',
+        ],
+        // hiddenControls: [
+        //   'clear',
+        //   'crop',
+        //   'draw',
+        //   'save',
+        //   'share',
+        //   'sticker',
+        //   'text',
+        // ],
+        colors:undefined,
+        onDone: (imagePath) => {
+            console.log('on done',JSON.stringify(imagePath));
+        },
+        onCancel: () => {
+            console.log('on cancel',route.params?.uri);
+        },
         });
-      }
-  )
-
-  return(
-      <View style={styles.container}>
-      <TouchableOpacity onPress={_onPress}>
-        <Text>Click</Text>
-      </TouchableOpacity>
-      <Image source = {require('../assets/photo.jpg')} style= {{height:'100%', width:'100%', flex:1}} resizeMode = 'contain'/>
-    </View>
-  )
+    }
+    return(
+        _onPress()
+    )
 }
-export default _myModel;
+export default EditSketch;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
