@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Button} from '../commons';
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native';
 import {BOTTOMBAR} from '../commons/Colors';
@@ -26,6 +27,29 @@ const BottomBar = ()=>{
                 onPress = {()=>navigation.navigate('Edit')} 
                 title = 'Edit'
                 icon = {<Entypo name = 'edit' size = {22} color = {BOTTOMBAR.background}/>}
+            />
+        </View>
+    )
+}
+
+export const BottomPhoto = (props)=>{
+    const navigation = useNavigation();
+    return(
+        <View style = {styles.container}>
+            <Button 
+                onPress = {()=>navigation.navigate('Library')} 
+                title = 'Library'
+                icon = {<MaterialIcons name = 'photo-library' size = {22} color = {BOTTOMBAR.background}/>}
+            />
+            <Button 
+                onPress = {props.onPressCrop}
+                title = 'Crop'
+                icon = {<SimpleLineIcons color = {BOTTOMBAR.background} name = 'crop' size = {22}/>}
+            />
+            <Button 
+                onPress = {props.onPressSave} 
+                title = 'Save'
+                icon = {<Entypo name = 'save' size = {22} color = {BOTTOMBAR.background}/>}
             />
         </View>
     )

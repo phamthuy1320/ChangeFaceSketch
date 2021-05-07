@@ -12,7 +12,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ImagePicker from 'react-native-image-crop-picker';
-import BottomBar from './components/BottomBar';
+import {BottomPhoto} from './components/BottomBar';
 import {BGCOLOR,HEADER} from './commons/Colors';
 const w = Dimensions.get('window');
 const photo = 'https://i.pinimg.com/564x/bd/0f/4f/bd0f4f9d99dee4fd5c3ea53facc7492f.jpg'
@@ -36,16 +36,16 @@ const EditImage = (props) =>{
                 left = {<AntDesign color = {HEADER.text} name = 'arrowleft' size = {22}
                     onPress = {()=>navigation.goBack()}
                 />}
-                right = {
-                    <View style = {{flexDirection:'row'}}>
-                        <SimpleLineIcons color = {HEADER.text} name = 'crop' size = {22}
-                            onPress = {()=>_openCropper(route?.params.uri)}
-                        />
-                        <View style ={{marginHorizontal:10}} />
-                        <MaterialIcons color = '#fff' name = 'done' size = {22}
-                            onPress = {()=>navigation.navigate('Save',{uri:route?.params.uri})}
-                        />
-                    </View>
+                right = {<View/>
+                    // <View style = {{flexDirection:'row'}}>
+                    //     <SimpleLineIcons color = {HEADER.text} name = 'crop' size = {22}
+                    //         onPress = {()=>_openCropper(route?.params.uri)}
+                    //     />
+                    //     <View style ={{marginHorizontal:10}} />
+                    //     <MaterialIcons color = '#fff' name = 'done' size = {22}
+                    //         onPress = {()=>navigation.navigate('Save',{uri:route?.params.uri})}
+                    //     />
+                    // </View>
                     }
             />
             
@@ -59,7 +59,10 @@ const EditImage = (props) =>{
                 />
             </View>
 
-            <BottomBar/>
+            <BottomPhoto
+                onPressCrop = {()=>_openCropper(route?.params.uri)}
+                onPressSave = {()=>navigation.navigate('Save',{uri:route?.params.uri})}
+            />
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PhotoEditor from 'react-native-photo-editor'
 
-const editImage = (uri) => {
+const editSketch = (uri) => {
     PhotoEditor.Edit({
     path: uri.split('file://')[1],
     stickers: [
@@ -31,9 +31,9 @@ const editImage = (uri) => {
         console.log('on done',JSON.stringify(imagePath));
     },
     onCancel: () => {
-        console.log('on cancel',route.params?.uri);
+        console.log('on cancel',uri);
     },
     });
 }
 
-export {editImage};
+export {editSketch};

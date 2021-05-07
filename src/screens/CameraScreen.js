@@ -2,18 +2,26 @@ import React from 'react';
 import {View} from 'react-native';
 import {Header} from './commons';
 import Camera from './components/Camera';
-import BottomBar from './components/BottomBar';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {HEADER} from './commons/Colors'
+import {useNavigation} from '@react-navigation/native'
 
 const CameraScreen = () =>{
+    const navigation = useNavigation()
     return(
         <>
-        <Header 
+        {/* <Header 
             left = {<View/>}
             title = {'camera'.toUpperCase()}
-            right = {<View/>}
-        />
+            right = {
+            <MaterialIcons 
+                name = 'photo-library' 
+                size = {22} 
+                color = {HEADER.text}
+                onPress = {()=>navigation.navigate('Library')}
+            />}
+        /> */}
         <Camera/>
-        <BottomBar/>
         </>
     )
 }

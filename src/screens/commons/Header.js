@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignContent:'center',
         alignItems:'center',
-        paddingHorizontal:5
+        paddingHorizontal:5,
+        flex:1
     },
     text:{
         textAlign:'center'
