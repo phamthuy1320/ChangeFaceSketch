@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Screen 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f1c3aa",
+      "flex": 1,
+      "justifyContent": "space-between",
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignContent": "center",
+        "alignItems": "flex-end",
+        "flex": 0.3333333333333333,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 35,
+          "textAlign": "right",
+        }
+      }
+    >
+      How do you want to
+
+get starting?
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.3333333333333333,
+        "justifyContent": "center",
+        "padding": 25,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "borderRadius": 25,
+          "flexDirection": "row",
+          "height": 90,
+          "justifyContent": "space-around",
+          "marginVertical": 10,
+          "opacity": 1,
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "#9f4347",
+              "fontSize": 50,
+            },
+            undefined,
+            Object {
+              "fontFamily": "anticon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#9f4347",
+              "fontSize": 22,
+            },
+          ]
+        }
+      >
+        Camera
+      </Text>
+      <View />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "borderRadius": 25,
+          "flexDirection": "row",
+          "height": 90,
+          "justifyContent": "space-around",
+          "marginVertical": 10,
+          "opacity": 1,
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "#9f4347",
+              "fontSize": 50,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Fontisto",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#9f4347",
+              "fontSize": 22,
+            },
+          ]
+        }
+      >
+        Library
+      </Text>
+      <View />
+    </View>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#9f4347",
+          "fontStyle": "italic",
+          "textAlign": "center",
+        }
+      }
+    >
+      Pham Thi Thuy K62 UET
+    </Text>
+  </View>
+</View>
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 const HEADER = {
     background:'#9f4347',
-    text:'#fff'
+    text:'#fff',
 };
 const BOTTOMBAR = {
     background:HEADER.background,
@@ -12,16 +12,13 @@ const BOTTOMBAR = {
 const BGCOLOR = '#f1c3aa';
 
 const ANNOUNCE = {
-    info:'#c3ff96',
-    text:'#8F9A07',
-    warn:'',
+    info:'#63b680',
+    text:'#fff',
 }
 
 const BUTTON = {
     inMain:{
         camera:{
-            // bg:'#342c3f',
-            // text:'#f2f2f2'
             bg:'#fff',
             text:'#9f4347'
         },
@@ -29,12 +26,14 @@ const BUTTON = {
             // bg:'#f1c3aa',
             // text:'#312823'
             bg:'#fff',
-            text:'#9f4347'
+            text:'#9f4347',
+            text1:''
         }
     },
     inBottomBar:{
         bg:'#fff',
-        text:'#fff'
+        text:'#fff',
+        text1:'#9f4347'
     }
 }
 export {BOTTOMBAR, HEADER, BGCOLOR, ANNOUNCE, BUTTON};

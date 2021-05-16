@@ -1,13 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Header} from './commons';
+// import {View} from 'react-native';
+// import {Header} from './commons';
 import Camera from './components/Camera';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {HEADER} from './commons/Colors'
-import {useNavigation} from '@react-navigation/native'
+// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+// import {HEADER} from './commons/Colors'
+// import {useNavigation} from '@react-navigation/native'
 
-const CameraScreen = () =>{
-    const navigation = useNavigation()
+const CameraScreen = ({navigation}) =>{
+    // const navigation = useNavigation()
     return(
         <>
         {/* <Header 
@@ -21,7 +21,7 @@ const CameraScreen = () =>{
                 onPress = {()=>navigation.navigate('Library')}
             />}
         /> */}
-        <Camera/>
+        <Camera navigation = {navigation} />
         </>
     )
 }

@@ -14,6 +14,7 @@ export default AppNavigation = () =>{
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions = {{headerShown:false}}>
+                {/* <Stack.Screen name = 'downImg' component = {downloadImage} /> */}
                 {/* <Stack.Screen name = 'Model' component = {_myModel}/> */}
                 <Stack.Screen name = 'Main' component = {MainScreen}/>
                 <Stack.Screen name = 'Camera' component = {CameraScreen}/>

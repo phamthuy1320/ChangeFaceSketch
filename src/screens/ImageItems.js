@@ -8,15 +8,14 @@ import {
     TouchableOpacity,
     Alert
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 const w = Dimensions.get('window');
 const ImageItems = (props) =>{
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     return(
-        <>
         <TouchableOpacity 
             // onPress = {()=>navigation.navigate('Edit', {source:props.source})}
-            onPress = {()=>navigation.navigate('Edit', {uri:props.uri})}
+            onPress = {()=>props.navigation.navigate('Edit', {uri:props.uri, fromCamera:props.fromCamera})}
         >
             <Image {...props}
                 // source = {props.source}
@@ -24,7 +23,6 @@ const ImageItems = (props) =>{
                 style = {styles.image}
             />
         </TouchableOpacity>
-        </>
     )
 }
 

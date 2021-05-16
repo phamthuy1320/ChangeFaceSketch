@@ -2,17 +2,14 @@ import React from 'react';
 import {
     View,
     Text,
-    StyleSheet,
-    Image,
-    ImageBackground
+    StyleSheet
 }from 'react-native';
 import {ButtonRect} from './commons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 import {BGCOLOR, BUTTON} from './commons/Colors';
-const im_brand = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/x.png';
-const im_background = 'https://raw.githubusercontent.com/phamthuy1320/GRADUATE_IMAGE/master/background.png';
+
 const BrandBox = () =>{
     const str = 'How do you want to\n\nget starting?'
     return(
@@ -22,8 +19,8 @@ const BrandBox = () =>{
     )
 }
 
-const ButtonBox = () =>{
-    const navigation = useNavigation()
+const ButtonBox = ({navigation}) =>{
+    // const navigation = useNavigation()
     return (
         <View style = {styles.buttonBox}>
             <ButtonRect 
@@ -53,13 +50,14 @@ const IntroductionBox = () =>{
         </View>
     )
 }
-const MainScreen = () =>{
+const MainScreen = ({navigation}) =>{
+    // const navigation = useNavigation()
     return(
         <View style = {styles.container}>
         {/* <ImageBackground source ={{uri:im_background}} style = {styles.container} resizeMode = 'stretch'> */}
             <BrandBox/>
             {/* <View style = {styles.brandbox} /> */}
-            <ButtonBox/>
+            <ButtonBox navigation={navigation}/>
             <IntroductionBox/>
         {/* </ImageBackground> */}
         </View>
@@ -69,30 +67,6 @@ const MainScreen = () =>{
 export default MainScreen;
 
 const styles = StyleSheet.create({
-    // _contener:{
-    //     height:'30%',
-    //     backgroundColor:'#ffdecb',
-    //     flexDirection:'row'
-    // },
-    // _contener1:{
-    //     borderBottomRightRadius:135,
-    //     borderBottomLeftRadius:135,
-    //     backgroundColor:'#fff',
-    //     borderEndWidth:3,
-    //     borderRightColor:'#a8842e',
-    //     height:'100%',
-    //     aspectRatio:1/1,
-    //     flex:1
-    // },
-    // _contener2:{
-    //     borderTopLeftRadius:135,
-    //     backgroundColor:'#fff',
-    //     borderLeftWidth:3,
-    //     borderLeftColor:'#a8842e',
-    //     height:'100%',
-    //     aspectRatio:1/1,
-    //     flex:1
-    // },
     container:{
         backgroundColor:BGCOLOR,
         flex:1,
@@ -101,10 +75,10 @@ const styles = StyleSheet.create({
     },
     brandbox: {
         flex:1/3,
-        borderRadius:25,
         justifyContent:'center',
         alignContent:'center',
-        alignItems:'center',
+        alignItems:'flex-end',
+        marginHorizontal:25,
     },
     buttonBox:{
         flex:1/3,

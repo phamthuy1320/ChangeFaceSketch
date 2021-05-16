@@ -5,14 +5,14 @@ import{
     StyleSheet,
     Image
 } from 'react-native';
-import {useRoute} from '@react-navigation/native';
+// import {useRoute} from '@react-navigation/native';
 const changeSketch = (uri) =>{
     const _uri = uri
     return _uri;
 }
 
-const ChangeToSketch = () =>{
-    const route = useRoute();
+const ChangeToSketch = ({route}) =>{
+    // const route = useRoute();
     const [sketch, setSketch] = useState();
     setSketch(changeSketch(route.params?.uri));
     return(

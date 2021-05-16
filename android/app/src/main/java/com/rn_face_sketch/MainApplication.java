@@ -1,4 +1,5 @@
 package com.rn_face_sketch;
+import com.rnfs.RNFSPackage; // <------- add package
 import com.reactlibrary.TfliteReactNativePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import android.app.Application;
@@ -28,7 +29,6 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new TfliteReactNativePackage());
           return packages;
         }
-
         @Override
         protected String getJSMainModuleName() {
           return "index";

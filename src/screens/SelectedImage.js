@@ -5,9 +5,9 @@ import {
     StyleSheet
 } from 'react-native';
 import {Button} from './commons';
-import {useNavigation} from '@react-navigation/native';
-const SelectedImage = () =>{
-    const navigation = useNavigation();
+// import {useNavigation} from '@react-navigation/native';
+const SelectedImage = ({navigation}) =>{
+    // const navigation = useNavigation();
     return(
         <View style = {styles.container}>
             <Button title = 'library' 

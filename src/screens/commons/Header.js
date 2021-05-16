@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         alignContent:'center',
         alignItems:'center',
         paddingHorizontal:5,
-        flex:1
     },
     text:{
         textAlign:'center'

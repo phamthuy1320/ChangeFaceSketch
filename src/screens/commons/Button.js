@@ -7,7 +7,18 @@ const Button = (props) =>{
         <TouchableOpacity style = {styles.button} {...props}>
             {props?.icon}
         </TouchableOpacity>
-        <Text style = {styles.title}>{props.title}</Text>
+        <Text style = {[styles.title, {color:BUTTON.inBottomBar?.text}]}>{props.title}</Text>
+    </View>
+    )
+}
+
+const Button1 = (props) =>{
+    return (
+    <View>
+        <TouchableOpacity style = {styles.button} {...props}>
+            {props?.icon}
+        </TouchableOpacity>
+        <Text style = {[styles.title, {color:BUTTON.inBottomBar?.text1}]}>{props.title}</Text>
     </View>
     )
 }
@@ -32,7 +43,7 @@ const ButtonRect = (props) =>{
         </TouchableOpacity>
     )
 }
-export {Button, ButtonRect};
+export {Button ,Button1, ButtonRect};
 const styles = StyleSheet.create({
     button:{
         height:50,
@@ -54,6 +65,5 @@ const styles = StyleSheet.create({
     },
     title:{
         textAlign:'center',
-        color:BUTTON.inBottomBar.text
     }
 })
